@@ -1,0 +1,32 @@
+SEIT FUNCTIONAL SOURCE LICENSE — Donation-Gated Runtime
+Version 1.0 — 2026
+
+Copyright (C) 2026 Ahmad Ali Parr / SnapKitty Research Lab
+
+1. SOURCE AVAILABILITY. The complete source code of this software is
+   made available to you. You may read, study, copy, modify, and
+   redistribute the source (modified or unmodified) for any purpose,
+   provided that this license text and all copyright notices are
+   preserved and travel with every copy.
+
+2. FUNCTIONAL AND VIABLE. The source is provided as a complete,
+   buildable, working program. No crippleware: the source you read
+   is the source that runs.
+
+3. RUNTIME REQUIRES DONATION. The right to execute, deploy, host, or
+   otherwise run this software — in whole or in part, modified or
+   unmodified, directly or as part of a larger system — is granted
+   only with a qualifying donation to the licensor. Without a
+   qualifying donation, no runtime right is granted under this
+   license. A "qualifying donation" is any voluntary contribution
+   made through the licensor's published donation channels.
+
+4. MODIFICATIONS. Modified versions remain under this license: their
+   source stays available under these terms, and running them still
+   requires a qualifying donation.
+
+5. NO WARRANTY. This software is provided "as is", without warranty
+   of any kind, express or implied.
+
+6. TERMINATION. All rights granted under this license terminate
+   automatically if you breach its terms.

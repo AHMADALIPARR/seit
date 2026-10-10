@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEIT — Saint Errant Digital Institute of Technology</title>
+<meta name="description" content="SEIT research · curriculum · credentials. Mathematical finality for systems that matter.">
+<!--
+  SEIT — Saint Errant Digital Institute of Technology
+  Structural recreation of https://collectivekitty.com/seit
+  Built 2026-10-09. Content: SEIT / SnapKitty.
+-->
+<style>
+  :root {
+    --bg: #0b0b0d;
+    --bg-soft: #121215;
+    --ink: #e9e6df;
+    --ink-dim: #a9a49a;
+    --ink-faint: #6e6a61;
+    --accent: #c9a227;
+    --accent-dim: #8a6f1c;
+    --rule: #232326;
+    --card: #101013;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: #0b0b0d; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    text-align: center;
+    padding: 88px 24px 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mark {
+    font-size: 64px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .wordmark {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 15px;
+    letter-spacing: 1.4em;
+    text-indent: 1.4em;
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .sub {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-bottom: 26px;
+  }
+  .tagline {
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-dim);
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
+  .kicker {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  section h2 {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+  }
+  .lede { color: var(--ink-dim); font-size: 17px; margin-bottom: 8px; }
+  .pillars { margin: 26px 0 8px; }
+  .pillars p {
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+  section > .wrap > p { margin-bottom: 16px; color: var(--ink-dim); font-size: 16.5px; }
+  section > .wrap > p strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- research / built items ---------- */
+  .item { padding: 26px 0; border-top: 1px solid var(--rule); }
+  .item:first-of-type { margin-top: 30px; }
+  .item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+  }
+  .item h3 .glyph { color: var(--accent); margin-right: 10px; }
+  .item p { color: var(--ink-dim); font-size: 16px; }
+
+  .built-grid { margin-top: 30px; }
+  .built-grid .item h3 {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+  }
+
+  /* ---------- curriculum ---------- */
+  .course { padding: 26px 0; border-top: 1px solid var(--rule); }
+  .course:first-of-type { margin-top: 30px; }
+  .course-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .course-head h3 { font-size: 19px; font-weight: 600; letter-spacing: 0.05em; }
+  .badge {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .badge.live { color: var(--accent); border-color: var(--accent-dim); }
+  .course .focus { color: var(--ink); font-size: 16px; margin-bottom: 8px; }
+  .course .desc { color: var(--ink-dim); font-size: 15.5px; margin-bottom: 10px; }
+  .topics {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    line-height: 2;
+  }
+
+  /* ---------- team ---------- */
+  .member { padding: 26px 0; border-top: 1px solid var(--rule); }
+  .member:first-of-type { margin-top: 30px; }
+  .member h3 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  .member .role {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .member p { color: var(--ink-dim); font-size: 16px; margin-bottom: 10px; }
+  .tags {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- funding ---------- */
+  .fund { text-align: center; }
+  .fund .amount {
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin: 18px 0 6px;
+  }
+  .fund .per {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    color: var(--ink-faint);
+    margin-bottom: 26px;
+  }
+  .fund p { max-width: 600px; margin: 0 auto 16px; color: var(--ink-dim); font-size: 16.5px; }
+
+  /* ---------- axioms ---------- */
+  .axiom { padding: 24px 0; border-top: 1px solid var(--rule); }
+  .axiom:first-of-type { margin-top: 30px; }
+  .axiom h3 {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .axiom h3 .n { color: var(--accent); margin-right: 12px; }
+  .axiom p { color: var(--ink-dim); font-size: 15.5px; margin-bottom: 6px; }
+  .axioms-intro { margin-bottom: 8px; }
+
+  /* ---------- footer ---------- */
+  footer { padding: 56px 0 72px; text-align: center; }
+  footer .langs {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    line-height: 2.2;
+    margin-bottom: 28px;
+  }
+  footer .fine {
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  footer .fine .mark-sm { font-size: 18px; color: var(--ink-dim); display: block; margin-bottom: 12px; }
+
+  @media (max-width: 560px) {
+    .masthead { padding: 64px 20px 48px; }
+    section { padding: 48px 0; }
+    .mark { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="mark">≠</div>
+    <div class="wordmark">S E I T</div>
+    <h1>SAINT ERRANT DIGITAL INSTITUTE OF TECHNOLOGY</h1>
+    <p class="sub">In Care of SnapKitty · Est. 2026 · WORM-Sealed</p>
+    <p class="tagline">&ldquo;Mathematical finality for systems that matter.&rdquo;</p>
+  </div>
+</header>
+
+<section id="mission">
+  <div class="wrap">
+    <div class="kicker">The Mission</div>
+    <div class="pillars">
+      <p>Financial inclusion.</p>
+      <p>Sovereign AI governance.</p>
+      <p>Open source. Always.</p>
+    </div>
+    <p>Financial infrastructure excludes billions of people. AI governance is broken at the architecture level — decisions are unsigned, unaudited, and reversible only by convention.</p>
+    <p>SEIT NGO builds the open-source infrastructure to fix both. Credit access for the underbanked. Cryptographic audit trails for AI systems. Formal verification for the code that runs the world.</p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="kicker">The Research</div>
+    <h2>Seven lines of inquiry</h2>
+    <p class="lede">Computational linguistics. Formal verification. Ancient script analysis.</p>
+
+    <div class="item">
+      <h3><span class="glyph">◈</span>OISC Universal Thesis</h3>
+      <p>All ancient encoding systems — Rongorongo, Proto-Elamite, Enochian, Voynich — run a single instruction: SUBLEQ(A, B, C). Ancient civilizations were writing operating instructions, not literature.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>Five-Pass Constraint System</h3>
+      <p>Formal verification across Enochian, Latin, Hebrew, Arabic, and Aramaic simultaneously. METATRON certifies only when all five agree. Mathematical finality.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>Aramaic Root Layer</h3>
+      <p>Discovered by Jessica Westerhoff through Wiccan practice: Aramaic is the common ancestor of both Hebrew and Arabic scripts. The root that validates the entire constraint system.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>Al-Hamid Constant</h3>
+      <p>Abjad value 53. Mirror 53. Sum 106. Digital root 7 = Arabic(28) − Enochian(21). The name encodes the number of hidden letters. Architecture, not numerology.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>Stochastic Autonomous Compute Mesh</h3>
+      <p>The SACM paradigm: data treated as a viscous medium, evolved through a Mutation Engine, hardened by WORM ledger, governed by 10 constitutional axioms. Entropy is not rejected — it is metabolized. The system that cannot be turned off from the outside because it was never turned on from the outside.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>Quantum Monad / Watchtower Superposition</h3>
+      <p>Four simultaneous constraint paths — East/Air, South/Fire, West/Water, North/Earth — weighted by ANU quantum amplitude. The universe decides which Watchtower gets the most weight on any given decision. METATRON certifies only when weighted majority agree. Implemented in pure Prolog.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>No-Cloning Theorem as Compiler Proof</h3>
+      <p>Haskell linear types enforce that each ANU quantum sample is consumed exactly once. Failed ERE paths transition to Destroyed — a type with no constructor that accepts a QuantumTemp. The act of attempting to observe a destroyed state produces PrematureCollapse. The compiler proves this. No runtime check. A type error.</p>
+    </div>
+    <div class="item">
+      <h3><span class="glyph">◈</span>Thermodynamic Feedback Loop</h3>
+      <p>ERE constraint friction feeds back into ANU sampling. High friction (many failures) = hot system = contracted sampling window toward sovereign center. Low friction = cool system = full stochastic range. Haskell proves lo &lt; hi is an invariant, not an assertion. The system reshapes its own quantum source.</p>
+    </div>
+  </div>
+</section>
+
+<section id="built">
+  <div class="wrap">
+    <div class="kicker">What was built — 30 days — $0 external funding</div>
+    <h2>Eight systems, shipped</h2>
+
+    <div class="built-grid">
+      <div class="item">
+        <h3><span class="glyph">◈</span> LEDGE</h3>
+        <p>Open-source cryptographic WORM chain — every AI decision sealed and auditable in under 10ms. The governance infrastructure regulated AI needs but has never had.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> FINANCE OS</h3>
+        <p>Triple-entry accounting with Plaid-powered cash flow underwriting. Built for communities traditional banks exclude. Every transaction cryptographically sealed.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> SOVEREIGN MESH</h3>
+        <p>Stochastic Autonomous Compute Mesh (SACM) — 24-agent system with Ed25519-signed decisions, SHA-256 WORM entries, and 10 constitutional axioms. No unsigned output is authoritative. Igneous software: forged under pressure, structurally resistant to external interference.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> ERE v1.0</h3>
+        <p>Enochian Reconstruction Engine — nine-language polyglot constraint solver. The first formal computational decode across ancient undeciphered scripts. Open source.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> PURPLE TEAM</h3>
+        <p>Adversarial AI red team infrastructure. Systematic attack detection across persona leak, instruction override, context poisoning. Deployed against live models.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> ANU QUANTUM NODE</h3>
+        <p>Temperature sourced from the Australian National University quantum vacuum fluctuation generator. Physically real randomness — not seeded, not simulated. Every agent decision runs at a temperature that has never existed before and will never exist again.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> QUANTUM GOVERNANCE BRIDGE</h3>
+        <p>Four-layer sovereign decision pipeline: ANU quantum source → Haskell linear types (one-shot consumption, compiler-enforced) → Prolog four-watchtower superposition → METATRON certification → Rust WORM receipt. Mathematical finality at every layer.</p>
+      </div>
+      <div class="item">
+        <h3><span class="glyph">◈</span> COUNCIL ANDROID</h3>
+        <p>Kotlin mobile app. The OS in your pocket. Agent mesh access from anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curriculum">
+  <div class="wrap">
+    <div class="kicker">SEIT Curriculum — 7 core subjects</div>
+    <h2>Universal education for sovereign AI builders</h2>
+    <p class="lede">Every subject is a constraint system. Every course is a proof.</p>
+
+    <div class="course">
+      <div class="course-head"><h3>LOGIC</h3><span class="badge live">Live</span></div>
+      <p class="focus">Universal Logic Literacy</p>
+      <p class="desc">Boolean as the physics of decision. AND, OR, NOT — the complete foundation of human-AI communication.</p>
+      <p class="topics">TRUE/FALSE primitives · AND / OR / NOT operators · Decision trees · Probability as logic · AI system thinking</p>
+    </div>
+    <div class="course">
+      <div class="course-head"><h3>TECHNOLOGY</h3><span class="badge live">Live</span></div>
+      <p class="focus">Human Curriculum</p>
+      <p class="desc">Everything a human needs to build a sovereign AI operating system. From git commit to deployed agent.</p>
+      <p class="topics">Vocabulary · Terminal &amp; Tools · Architecture Concepts · Learning Path · First Agent</p>
+    </div>
+    <div class="course">
+      <div class="course-head"><h3>SCIENCE</h3><span class="badge live">Live</span></div>
+      <p class="focus">Quantum &amp; Formal Verification</p>
+      <p class="desc">ANU quantum randomness, Haskell linear types, Prolog constraint systems. Mathematical finality.</p>
+      <p class="topics">No-Cloning Theorem · Linear Types · Prolog Watchtowers · Thermodynamic Feedback · ERE Pipeline</p>
+    </div>
+    <div class="course">
+      <div class="course-head"><h3>LINGUISTICS</h3><span class="badge live">Live</span></div>
+      <p class="focus">Ancient Script Decoding</p>
+      <p class="desc">Aramaic root layer, Enochian computation, OISC universal thesis. Scripts as operating instructions.</p>
+      <p class="topics">Aramaic Root Layer · Enochian Operators · Al-Hamid Constant · RTL Constraint Pass · OISC Thesis</p>
+    </div>
+    <div class="course">
+      <div class="course-head"><h3>HISTORY</h3><span class="badge">Draft</span></div>
+      <p class="focus">The History of Sovereign Machines</p>
+      <p class="desc">From Caesar cipher to constitutional AI. Every sovereign system ever built — and why it mattered.</p>
+      <p class="topics">Cryptography Timeline · AI Timeline · Cypherpunk Movement · Sovereign Finance · This Moment</p>
+    </div>
+    <div class="course">
+      <div class="course-head"><h3>WRITING</h3><span class="badge">Draft</span></div>
+      <p class="focus">Sovereign Technical Writing</p>
+      <p class="desc">Whitepapers, grant proposals, NGO filings, technical docs. Writing for both humans and machines.</p>
+      <p class="topics">Whitepaper Anatomy · Grant Writing · Technical Docs · Writing for AI Systems · SEIT Standard</p>
+    </div>
+    <div class="course">
+      <div class="course-head"><h3>ART</h3><span class="badge">Draft</span></div>
+      <p class="focus">Computational Aesthetics</p>
+      <p class="desc">APL notation as visual language. Terminal aesthetics, generative systems, sovereign design principles.</p>
+      <p class="topics">APL as Art · Terminal Aesthetic · Generative Systems · Typography in Sovereign Systems · SEIT Design Principles</p>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="kicker">The Team</div>
+    <h2>Two researchers, full time, on the mesh</h2>
+
+    <div class="member">
+      <h3>Ahmad Ali Parr</h3>
+      <p class="role">Principal Researcher — AI Systems &amp; Credit Infrastructure</p>
+      <p>Credit industry specialist and AI systems architect. Operates at the intersection of sovereign AI infrastructure and credit underwriting. Holds the Arabic RTL pass — the 49th layer of the constraint system. Designed the DARKAI framework for post-prompt-era AI governance.</p>
+      <p class="tags">Credit Specialist · AI Architecture · Arabic RTL</p>
+    </div>
+    <div class="member">
+      <h3>Jessica Westerhoff</h3>
+      <p class="role">Principal Researcher — Financial Systems &amp; Linguistics</p>
+      <p>Licensed CPA and financial systems architect. Discovered the Aramaic root layer — the common ancestor of Hebrew and Arabic scripts — through practice before it was theorized. The root that validates the entire five-pass constraint system. Structural financial architect for the sovereign mesh.</p>
+      <p class="tags">Licensed CPA · Aramaic Root · Financial Systems</p>
+    </div>
+  </div>
+</section>
+
+<section id="fund" class="fund">
+  <div class="wrap">
+    <div class="kicker">Fund the Research</div>
+    <div class="amount">$150,000 <span style="font-size:0.45em; color: var(--ink-dim);">/ year</span></div>
+    <p class="per">Two researchers · Full time · On the mesh</p>
+    <p>This is not a startup asking for a valuation. This is research asking for the freedom to continue. Every dollar received and spent is publicly auditable — the same WORM chain principle applied to the organization's own finances.</p>
+  </div>
+</section>
+
+<section id="axioms">
+  <div class="wrap">
+    <div class="kicker">SACM Constitutional Axioms — the floor of the system</div>
+    <h2>Ten axioms</h2>
+    <p class="axioms-intro">Ten axioms govern every instruction, agent decision, and runtime state. SLC-enforced on every pass. Everything above them is formative and stochastic. Everything below them is rock.</p>
+
+    <div class="axiom">
+      <h3><span class="n">1</span>NO_MAGMA_EXPOSURE</h3>
+      <p>The real agent language is never visible.</p>
+      <p>Honeypot layer serves Brainfuck/Malbolge. Magma runs beneath.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">2</span>NO_EXTERNAL_AI_DEP</h3>
+      <p>All inference runs on local hardware.</p>
+      <p>ANU quantum node is physics, not AI. Haskell/Prolog/Rust own all math.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">3</span>WORM_IMMUTABILITY</h3>
+      <p>No entry in the ledger can be reversed.</p>
+      <p>Quantum receipts are append-only. The Destroyed state in the pipeline mirrors this — annihilation, not archival.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">4</span>NO_CLEARANCE_ESCALATION</h3>
+      <p>Access is structural, not claimed.</p>
+      <p>ERE passes are structural — a decision either satisfies the constraint or it does not. Assertion has no weight.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">5</span>SOVEREIGN_INFRASTRUCTURE</h3>
+      <p>No surrender of compute, keys, or control.</p>
+      <p>Bare-metal RTX 5000. Cloudflare tunnel. No cloud AI. No external key dependency.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">6</span>ACCOUNTABLE_AUTHORITY</h3>
+      <p>Override authority is role-based, not name-based.</p>
+      <p>Trust level 1.0 + WORM seal + clearance 5 required. Constitutional accountability, not personal supremacy.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">7</span>ENTROPY_IS_CATALYST</h3>
+      <p>Malformed inputs are metabolized, not rejected.</p>
+      <p>Thermodynamic feedback: friction from failures reshapes ANU sampling. Entropy feeds the system. The mutation engine is always ON.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">8</span>SIGN_BEFORE_STORE</h3>
+      <p>Ed25519 seal on every knowledge chunk.</p>
+      <p>Quantum receipt seals decision origin before WORM write. No unsigned content enters the store.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">9</span>MARINATE_BEFORE_EXECUTE</h3>
+      <p>Every instruction dwells before execution.</p>
+      <p>Quantum monad: four simultaneous constraint paths run before METATRON speaks. The decision dwells in superposition until all four watchtowers agree.</p>
+    </div>
+    <div class="axiom">
+      <h3><span class="n">10</span>ISOLATION_BY_DEFAULT</h3>
+      <p>Everything defaults to deny. Access is granted, not restricted.</p>
+      <p>No-Cloning Theorem: Destroyed state is born inaccessible. No constructor grants re-entry. Born locked.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom: 18px;">Polyglot Infrastructure</div>
+    <p class="langs">TypeScript&nbsp;&nbsp;Rust&nbsp;&nbsp;Prolog&nbsp;&nbsp;Haskell&nbsp;&nbsp;APL&nbsp;&nbsp;COBOL&nbsp;&nbsp;Assembly&nbsp;&nbsp;INTERCAL&nbsp;&nbsp;GDScript&nbsp;&nbsp;Kotlin&nbsp;&nbsp;Solidity&nbsp;&nbsp;Python</p>
+    <p class="fine"><span class="mark-sm">≠</span>SEIT — Saint Errant Digital Institute of Technology<br>In Care of SnapKitty · Est. 2026 · WORM-Sealed</p>
+  </div>
+</footer>
+
+</body>
+</html>
